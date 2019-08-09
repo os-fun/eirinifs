@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/lifecycle/sshd -inheritDaemonEnv --authorizedKey "${EIRINI_SSH_KEY}" --address 0.0.0.0:2222 2>&1 > /tmp/sshd.log &
+exec /lifecycle/original-launch
