@@ -1,4 +1,4 @@
 #!/bin/bash
-
-/lifecycle/sshd -inheritDaemonEnv --authorizedKey "${EIRINI_SSH_KEY}" --address 0.0.0.0:2222 2>&1 > /tmp/sshd.log &
+# Consume the EIRINI SSH fingerprint so that the sshd daemon advertize it
+/lifecycle/sshd -inheritDaemonEnv --hostKey "${EIRINI_HOST_KEY}" --authorizedKey "${EIRINI_SSH_KEY}" --address 0.0.0.0:2222 2>&1 > /tmp/sshd.log &
 exec /lifecycle/original-launch
